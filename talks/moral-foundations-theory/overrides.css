@@ -1,0 +1,253 @@
+:root {
+  --r-main-font-size: 1.35rem;
+  --r-heading1-size: 1.85em;
+  --r-heading2-size: 1.25em;
+  --r-heading3-size: 0.95em;
+  --r-heading-text-transform: uppercase;
+}
+
+.reveal {
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.reveal h1 {
+  font-size: 1.85em;
+  line-height: 1.12;
+}
+
+.reveal h2 {
+  font-size: 1.25em;
+  color: var(--accent);
+  margin-bottom: 0.48em;
+}
+
+.reveal h3 {
+  font-size: 0.95em;
+  color: var(--accent2);
+  margin-bottom: 0.3em;
+}
+
+.reveal .subtitle {
+  font-size: 0.7em;
+  color: var(--muted);
+  margin-top: 0.4em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.reveal .section-label {
+  display: inline-block;
+  font-size: 0.6em;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--fdp-pink);
+  border: 1px solid var(--fdp-pink);
+  border-radius: 2px;
+  padding: 0.15em 0.6em;
+  margin-bottom: 0.6em;
+}
+
+.reveal .cards {
+  display: grid;
+  gap: 0.5em;
+}
+
+.reveal .cards.cols-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.reveal .cards.cols-3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.reveal .card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 0.6em 0.75em;
+  text-align: left;
+}
+
+.reveal .card h3 {
+  margin: 0 0 0.18em;
+  font-size: 0.78em;
+}
+
+.reveal .card p,
+.reveal .card li {
+  font-size: 0.6em;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+.reveal .card ul {
+  padding-left: 1em;
+  margin: 0;
+}
+
+.reveal .card .icon {
+  font-size: 1.18em;
+  margin-bottom: 0.12em;
+  display: block;
+}
+
+.reveal .foundation {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 100px;
+  padding: 0.25em 0.7em;
+  font-size: 0.65em;
+  margin: 0.2em;
+}
+
+.reveal .party-grid {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 0.4em 0.8em;
+  align-items: center;
+  font-size: 0.6em;
+}
+
+.reveal blockquote.haidt {
+  border-left: 3px solid var(--fdp-pink);
+  padding-left: 1em;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.68em;
+  text-align: left;
+  margin: 0.55em 0;
+}
+
+.reveal blockquote.haidt cite {
+  display: block;
+  margin-top: 0.4em;
+  font-size: 0.8em;
+  font-style: normal;
+  color: var(--muted);
+}
+
+.reveal .timeline {
+  list-style: none;
+  padding: 0 0 0 1.2em;
+  margin: 0;
+  border-left: 2px solid var(--card-border);
+  text-align: left;
+  font-size: 0.58em;
+}
+
+.reveal .timeline li {
+  position: relative;
+  margin-bottom: 0.35em;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.reveal .timeline li::before {
+  content: '';
+  position: absolute;
+  left: -1.45em;
+  top: 0.35em;
+  width: 0.55em;
+  height: 0.55em;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.reveal .timeline .year {
+  color: var(--accent);
+  font-weight: 700;
+  margin-right: 0.4em;
+}
+
+.reveal .spectrum {
+  height: 0.5em;
+  border-radius: 100px;
+  background: linear-gradient(90deg, #4fc3f7, #ce93d8, #e57373);
+  margin: 0.4em 0 0.2em;
+}
+
+.reveal .spectrum-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.55em;
+  color: var(--muted);
+}
+
+.reveal .small {
+  font-size: 0.6em;
+}
+
+.reveal .mt {
+  margin-top: 0.45em;
+}
+
+.reveal ul {
+  list-style: none;
+  padding: 0;
+}
+
+.reveal ul li::before {
+  content: '→ ';
+  color: var(--accent);
+}
+
+.reveal .two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+  text-align: left;
+}
+
+.reveal .fd-hero {
+  font-size: 1.8em;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.reveal .fd-vs {
+  font-size: 0.48em;
+  color: var(--muted);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  margin-top: 0.2em;
+}
+
+.reveal .fd-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.45em;
+  margin-top: 0.45em;
+}
+
+.reveal .party-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.52em;
+  margin-top: 0.35em;
+}
+
+.reveal .party-table th {
+  padding: 0.32em 0.4em;
+  font-weight: 700;
+  text-align: center;
+  border-bottom: 1px solid var(--card-border);
+  font-size: 0.9em;
+}
+
+.reveal .party-table td {
+  padding: 0.32em 0.4em;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.reveal .party-table .pt-name {
+  text-align: left;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 700;
+  white-space: nowrap;
+  padding-right: 0.8em;
+}

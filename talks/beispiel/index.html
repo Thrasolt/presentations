@@ -4,8 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Beispiel-Präsentation</title>
-  <link rel="stylesheet" href="../../node_modules/reveal.js/dist/reveal.css" />
-  <link rel="stylesheet" href="../../node_modules/reveal.js/dist/theme/black.css" />
   <style>
     .reveal .back-link {
       position: fixed;
@@ -80,14 +78,6 @@ console.log(hallo('Welt'))
     </div>
   </div>
 
-  <script type="module">
-    import Reveal from '../../node_modules/reveal.js/dist/reveal.esm.js'
-    import Highlight from '../../node_modules/reveal.js/plugin/highlight/highlight.esm.js'
-
-    Reveal.initialize({
-      hash: true,
-      plugins: [Highlight],
-    })
-  </script>
+  <script type="module" src="/talks/beispiel/main.js"></script>
 </body>
 </html>
