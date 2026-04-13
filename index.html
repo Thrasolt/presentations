@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Präsentationen</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: #e0e0e0;
+      min-height: 100vh;
+      padding: 3rem 2rem;
+    }
+
+    header {
+      max-width: 800px;
+      margin: 0 auto 3rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      color: #888;
+    }
+
+    .talks {
+      max-width: 800px;
+      margin: 0 auto;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .talk-card {
+      display: block;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .talk-card:hover {
+      background: #222;
+      border-color: #444;
+    }
+
+    .talk-card h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .talk-card p {
+      margin-top: 0.4rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    .talk-card .meta {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Präsentationen</h1>
+    <p>Eine Sammlung meiner Vorträge und Talks.</p>
+  </header>
+
+  <main class="talks">
+    <a class="talk-card" href="talks/beispiel/index.html">
+      <h2>Beispiel-Präsentation</h2>
+      <p>Eine Demo-Folie zum Ausprobieren der Grundstruktur.</p>
+      <div class="meta">2026 · Reveal.js</div>
+    </a>
+  </main>
+</body>
+</html>

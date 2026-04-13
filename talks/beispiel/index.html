@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beispiel-Präsentation</title>
+  <link rel="stylesheet" href="../../node_modules/reveal.js/dist/reveal.css" />
+  <link rel="stylesheet" href="../../node_modules/reveal.js/dist/theme/black.css" />
+  <style>
+    .reveal .back-link {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      z-index: 100;
+    }
+    .reveal .back-link:hover {
+      color: rgba(255,255,255,0.8);
+    }
+  </style>
+</head>
+<body>
+  <a class="back-link" href="../../index.html">← Alle Präsentationen</a>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h1>Beispiel-Präsentation</h1>
+        <p>Mit Reveal.js &amp; Vite</p>
+      </section>
+
+      <section>
+        <h2>Navigieren</h2>
+        <ul>
+          <li>Pfeiltasten oder Klick zum Wechseln</li>
+          <li><kbd>F</kbd> für Vollbild</li>
+          <li><kbd>S</kbd> für Speaker Notes</li>
+          <li><kbd>O</kbd> für Übersicht</li>
+        </ul>
+        <aside class="notes">
+          Das hier sind Speaker Notes – nur im Presenter-Modus sichtbar.
+        </aside>
+      </section>
+
+      <section>
+        <h2>Vertikale Folien</h2>
+        <p>Mit ↓ nach unten navigieren</p>
+      </section>
+
+      <section>
+        <section>
+          <h2>Ebene 1</h2>
+          <p>↓ für mehr</p>
+        </section>
+        <section>
+          <h2>Ebene 2</h2>
+          <p>Vertikale Folien für Unterthemen</p>
+        </section>
+      </section>
+
+      <section>
+        <h2>Code-Beispiel</h2>
+        <pre><code class="language-js" data-trim>
+function hallo(name) {
+  return `Hallo, ${name}!`
+}
+
+console.log(hallo('Welt'))
+        </code></pre>
+      </section>
+
+      <section>
+        <h1>Ende</h1>
+        <p><a href="../../index.html">← Zurück zur Übersicht</a></p>
+      </section>
+
+    </div>
+  </div>
+
+  <script type="module">
+    import Reveal from '../../node_modules/reveal.js/dist/reveal.esm.js'
+    import Highlight from '../../node_modules/reveal.js/plugin/highlight/highlight.esm.js'
+
+    Reveal.initialize({
+      hash: true,
+      plugins: [Highlight],
+    })
+  </script>
+</body>
+</html>
