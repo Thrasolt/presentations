@@ -1,29 +1,29 @@
 :root {
-  --r-main-font-size: 1.35rem;
-  --r-heading1-size: 1.85em;
-  --r-heading2-size: 1.25em;
-  --r-heading3-size: 0.95em;
+  --r-main-font-size: 1.58rem;
+  --r-heading1-size: 2.15em;
+  --r-heading2-size: 1.42em;
+  --r-heading3-size: 1.06em;
   --r-heading-text-transform: uppercase;
 }
 
 .reveal {
-  font-size: 1.35rem;
+  font-size: 1.58rem;
   line-height: 1.2;
 }
 
 .reveal h1 {
-  font-size: 1.85em;
+  font-size: 2.15em;
   line-height: 1.12;
 }
 
 .reveal h2 {
-  font-size: 1.25em;
+  font-size: 1.42em;
   color: var(--accent);
   margin-bottom: 0.48em;
 }
 
 .reveal h3 {
-  font-size: 0.95em;
+  font-size: 1.06em;
   color: var(--accent2);
   margin-bottom: 0.3em;
 }
