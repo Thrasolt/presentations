@@ -9,10 +9,13 @@
   <link rel="stylesheet" href="../../node_modules/reveal.js/plugin/highlight/monokai.css" />
   <style>
     :root {
-      --accent:   #e8a838;
-      --accent2:  #4fc3f7;
-      --muted:    rgba(255,255,255,0.5);
-      --card-bg:  rgba(255,255,255,0.06);
+      --fdp-yellow: #FFED00;
+      --fdp-pink:   #e5007d;
+      --fdp-blue:   #009EE3;
+      --accent:     #FFED00;
+      --accent2:    #009EE3;
+      --muted:      rgba(255,255,255,0.5);
+      --card-bg:    rgba(255,255,255,0.06);
       --card-border: rgba(255,255,255,0.12);
     }
 
@@ -53,8 +56,8 @@
       font-size: 0.6em;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--accent);
-      border: 1px solid var(--accent);
+      color: var(--fdp-pink);
+      border: 1px solid var(--fdp-pink);
       border-radius: 2px;
       padding: 0.15em 0.6em;
       margin-bottom: 0.6em;
@@ -131,7 +134,7 @@
 
     /* ── Quote ── */
     blockquote.haidt {
-      border-left: 3px solid var(--accent);
+      border-left: 3px solid var(--fdp-pink);
       padding-left: 1em;
       font-style: italic;
       color: rgba(255,255,255,0.8);
@@ -249,6 +252,8 @@
     }
     .party-table tr:last-child td { border-bottom: none; }
     .party-table tr:hover td { background: rgba(255,255,255,0.03); }
+    .party-table tr.fdp-row td { background: rgba(255, 237, 0, 0.05); }
+    .party-table tr.fdp-row .pt-name { color: var(--fdp-yellow); }
     .party-table .pt-name {
       text-align: left;
       color: rgba(255,255,255,0.9);
@@ -269,6 +274,11 @@
            TITELFOLIE
       ════════════════════════════════════════════════════ -->
       <section>
+        <div style="display:flex; align-items:center; justify-content:center; gap:0.4em; margin-bottom:1em;">
+          <span style="display:inline-block; width:0.3em; height:2em; background:var(--fdp-pink); border-radius:2px;"></span>
+          <span style="display:inline-block; width:0.3em; height:2em; background:var(--fdp-yellow); border-radius:2px;"></span>
+          <span style="display:inline-block; width:0.3em; height:2em; background:var(--fdp-blue); border-radius:2px;"></span>
+        </div>
         <p class="section-label">Moralpsychologie</p>
         <h1>Moral Foundations<br>Theory</h1>
         <p class="subtitle">Warum gute Menschen durch Politik &amp; Religion gespalten sind</p>
@@ -749,7 +759,7 @@
               <td><span class="dot3" style="color:#ce93d8">●●●</span></td>
               <td><span style="color:#ff8a65; opacity:0.55">●●</span></td>
             </tr>
-            <tr>
+            <tr class="fdp-row">
               <td class="pt-name">FDP</td>
               <td><span style="color:#e57373; opacity:0.22">●</span></td>
               <td><span style="color:#81c784; opacity:0.55">●●</span></td>
@@ -882,6 +892,11 @@
            TEIL 4 – FDP & MFT
       ════════════════════════════════════════════════════ -->
       <section>
+        <div style="display:flex; align-items:center; justify-content:center; gap:0.5em; margin-bottom:0.8em;">
+          <span style="display:inline-block; width:0.35em; height:1.6em; background:var(--fdp-pink); border-radius:2px;"></span>
+          <span style="display:inline-block; width:0.35em; height:1.6em; background:var(--fdp-yellow); border-radius:2px;"></span>
+          <span style="display:inline-block; width:0.35em; height:1.6em; background:var(--fdp-blue); border-radius:2px;"></span>
+        </div>
         <p class="section-label">Teil 4</p>
         <h2 style="color:#fff; font-size:1.6em;">FDP &amp; Moral Foundations</h2>
         <p class="text-muted small">Diagnose und praktische Übertragung</p>
@@ -890,14 +905,14 @@
       <section>
         <h2>FDP – Aktuelle Moralische Positionierung</h2>
         <div class="cards cols-2">
-          <div class="card">
+          <div class="card" style="border-left: 3px solid var(--fdp-yellow);">
             <h3>Aktiv bespielt</h3>
             <ul>
               <li><span style="color:#ff8a65">●</span> <strong>Freiheit:</strong> Eigenverantwortung, Bürgerrechte, weniger Staat</li>
               <li><span style="color:#81c784">●</span> <strong>Fairness (Leistung):</strong> Wer arbeitet, soll profitieren</li>
             </ul>
           </div>
-          <div class="card">
+          <div class="card" style="border-left: 3px solid var(--fdp-pink);">
             <h3>Kaum bespielt</h3>
             <ul>
               <li><span style="color:#e57373">●</span> Care: fast absent</li>
@@ -1024,17 +1039,17 @@
         <h2>Empfehlung 5: Sanctity – die übersehene Foundation</h2>
         <p class="small text-muted">Sanctity klingt religiös – ist es aber nicht nur. Es geht um das Gefühl von <em>Unantastbarkeit</em> und <em>Reinheit</em>. Die FDP kann das säkular nutzen:</p>
         <div class="cards mt">
-          <div class="card" style="border-left: 3px solid #ce93d8;">
+          <div class="card" style="border-left: 3px solid var(--fdp-pink);">
             <h3>🔒 Digitale Privatsphäre als Unantastbarkeit</h3>
             <p style="font-size:0.65em">„Deine Daten gehören dir – der Staat hat nichts in deinem Telefon zu suchen. Die Würde des Menschen ist unantastbar, auch digital."</p>
             <p style="font-size:0.58em; color:var(--muted); margin-top:0.4em">Ansprache: Sanctity + Liberty. Zielgruppe: Junge, Technik-affine, Bürgerrechtler.</p>
           </div>
-          <div class="card" style="border-left: 3px solid #ce93d8;">
+          <div class="card" style="border-left: 3px solid var(--fdp-pink);">
             <h3>⚖️ Rechtsstaatlichkeit als heiliges Gut</h3>
             <p style="font-size:0.65em">„Das Grundgesetz ist unser höchstes Gut – und es schützt uns vor staatlicher Willkür. Wir lassen nicht zu, dass Ausnahmen zum Normalzustand werden."</p>
             <p style="font-size:0.58em; color:var(--muted); margin-top:0.4em">Ansprache: Sanctity + Authority. Zielgruppe: Bildungsbürgertum, Juristen, Ordoliberale.</p>
           </div>
-          <div class="card" style="border-left: 3px solid #ce93d8;">
+          <div class="card" style="border-left: 3px solid var(--fdp-pink);">
             <h3>🏪 Marktintegrität statt Marktverzerrung</h3>
             <p style="font-size:0.65em">„Ein freier Markt ohne politische Korruption und Subventionen ist das reinste System wirtschaftlicher Gerechtigkeit – Lobbyismus beschmutzt ihn."</p>
             <p style="font-size:0.58em; color:var(--muted); margin-top:0.4em">Ansprache: Sanctity + Fairness. Zielgruppe: Unternehmer, Wirtschaftsliberale mit Prinzipien.</p>
@@ -1045,7 +1060,7 @@
       <section>
         <h2>Das FDP-Moralspektrum: Vorher / Nachher</h2>
         <div class="party-grid">
-          <div class="party-label" style="color:#aaa;">Vorher</div>
+          <div class="party-label" style="color:var(--muted);">Vorher</div>
           <div class="bar-wrap">
             <div class="bar-seg low"    style="background:#e57373"></div>
             <div class="bar-seg mid"    style="background:#81c784"></div>
@@ -1055,7 +1070,7 @@
             <div class="bar-seg high"   style="background:#ff8a65"></div>
           </div>
 
-          <div class="party-label" style="color:#e8a838;">Nachher</div>
+          <div class="party-label" style="color:var(--fdp-yellow);">Nachher</div>
           <div class="bar-wrap">
             <div class="bar-seg mid"    style="background:#e57373"></div>
             <div class="bar-seg high"   style="background:#81c784"></div>
