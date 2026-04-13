@@ -18,6 +18,7 @@ function getTalkEntries() {
 
 export default defineConfig({
   base: './',
+  publicDir: false,
   build: {
     outDir: 'public',
     rollupOptions: {
