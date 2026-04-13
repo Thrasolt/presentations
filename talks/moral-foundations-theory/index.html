@@ -20,7 +20,8 @@
     }
 
     .reveal {
-      font-size: 1.55rem;
+      font-size: 1.18rem;
+      line-height: 1.18;
     }
 
     /* ── Back link ── */
@@ -37,9 +38,9 @@
     .back-link:hover { color: #fff; }
 
     /* ── Headings ── */
-    .reveal h1 { font-size: 1.9em; line-height: 1.15; }
-    .reveal h2 { font-size: 1.3em; color: var(--accent); margin-bottom: 0.6em; }
-    .reveal h3 { font-size: 1em; color: var(--accent2); margin-bottom: 0.4em; }
+    .reveal h1 { font-size: 1.75em; line-height: 1.08; }
+    .reveal h2 { font-size: 1.15em; color: var(--accent); margin-bottom: 0.42em; }
+    .reveal h3 { font-size: 0.9em; color: var(--accent2); margin-bottom: 0.28em; }
 
     /* ── Subtitle / meta ── */
     .subtitle {
@@ -66,7 +67,7 @@
     /* ── Cards ── */
     .cards {
       display: grid;
-      gap: 0.7em;
+      gap: 0.45em;
     }
     .cards.cols-2 { grid-template-columns: 1fr 1fr; }
     .cards.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
@@ -75,13 +76,13 @@
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 8px;
-      padding: 0.8em 1em;
+      padding: 0.55em 0.7em;
       text-align: left;
     }
-    .card h3 { margin: 0 0 0.25em; font-size: 0.85em; }
-    .card p, .card li { font-size: 0.65em; color: rgba(255,255,255,0.75); margin: 0; }
+    .card h3 { margin: 0 0 0.18em; font-size: 0.76em; }
+    .card p, .card li { font-size: 0.56em; color: rgba(255,255,255,0.75); margin: 0; }
     .card ul { padding-left: 1em; margin: 0; }
-    .card .icon { font-size: 1.4em; margin-bottom: 0.2em; display: block; }
+    .card .icon { font-size: 1.15em; margin-bottom: 0.12em; display: block; }
 
     /* ── Foundation pills ── */
     .foundation {
@@ -138,9 +139,9 @@
       padding-left: 1em;
       font-style: italic;
       color: rgba(255,255,255,0.8);
-      font-size: 0.75em;
+      font-size: 0.62em;
       text-align: left;
-      margin: 0.8em 0;
+      margin: 0.5em 0;
     }
     blockquote.haidt cite {
       display: block;
@@ -157,11 +158,11 @@
       border-left: 2px solid var(--card-border);
       padding-left: 1.2em;
       text-align: left;
-      font-size: 0.65em;
+      font-size: 0.53em;
     }
     .timeline li {
       position: relative;
-      margin-bottom: 0.5em;
+      margin-bottom: 0.28em;
       color: rgba(255,255,255,0.8);
     }
     .timeline li::before {
@@ -197,8 +198,8 @@
     .text-muted  { color: var(--muted); }
     .text-accent { color: var(--accent); }
     .text-accent2 { color: var(--accent2); }
-    .small { font-size: 0.65em; }
-    .mt { margin-top: 0.6em; }
+    .small { font-size: 0.56em; }
+    .mt { margin-top: 0.42em; }
 
     .reveal ul { list-style: none; padding: 0; }
     .reveal ul li::before { content: '→ '; color: var(--accent); }
@@ -206,19 +207,19 @@
     .two-col {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.5em;
+      gap: 0.9em;
       text-align: left;
     }
 
     /* ── Foundation detail slides ── */
     .fd-hero {
-      font-size: 2.4em;
+      font-size: 1.75em;
       font-weight: 800;
       letter-spacing: -0.02em;
       line-height: 1.05;
     }
     .fd-vs {
-      font-size: 0.52em;
+      font-size: 0.46em;
       color: var(--muted);
       font-weight: 400;
       letter-spacing: 0.04em;
@@ -227,26 +228,26 @@
     .fd-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 0.8em;
-      margin-top: 0.7em;
+      gap: 0.48em;
+      margin-top: 0.45em;
     }
 
     /* ── Party table ── */
     .party-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.64em;
-      margin-top: 0.6em;
+      font-size: 0.49em;
+      margin-top: 0.35em;
     }
     .party-table th {
-      padding: 0.5em 0.6em;
+      padding: 0.32em 0.4em;
       font-weight: 700;
       text-align: center;
       border-bottom: 1px solid var(--card-border);
       font-size: 0.9em;
     }
     .party-table td {
-      padding: 0.5em 0.6em;
+      padding: 0.32em 0.4em;
       text-align: center;
       border-bottom: 1px solid rgba(255,255,255,0.05);
     }
@@ -259,7 +260,7 @@
       color: rgba(255,255,255,0.9);
       font-weight: 700;
       white-space: nowrap;
-      padding-right: 1.2em;
+      padding-right: 0.8em;
     }
     .dot3 { letter-spacing: -0.1em; }
   </style>
@@ -1277,6 +1278,9 @@
     import Notes from '../../node_modules/reveal.js/plugin/notes/notes.esm.js'
 
     Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0.035,
       hash: true,
       transition: 'fade',
       transitionSpeed: 'fast',
