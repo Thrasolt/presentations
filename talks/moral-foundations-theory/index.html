@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moral Foundations Theory – Jonathan Haidt</title>
+  <link rel="stylesheet" href="../../node_modules/reveal.js/dist/reveal.css" />
+  <link rel="stylesheet" href="../../node_modules/reveal.js/dist/theme/black.css" />
+  <link rel="stylesheet" href="../../node_modules/reveal.js/plugin/highlight/monokai.css" />
+  <style>
+    :root {
+      --accent:   #e8a838;
+      --accent2:  #4fc3f7;
+      --muted:    rgba(255,255,255,0.5);
+      --card-bg:  rgba(255,255,255,0.06);
+      --card-border: rgba(255,255,255,0.12);
+    }
+
+    .reveal {
+      font-size: 1.55rem;
+    }
+
+    /* ── Back link ── */
+    .back-link {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-decoration: none;
+      z-index: 100;
+      letter-spacing: 0.03em;
+    }
+    .back-link:hover { color: #fff; }
+
+    /* ── Headings ── */
+    .reveal h1 { font-size: 1.9em; line-height: 1.15; }
+    .reveal h2 { font-size: 1.3em; color: var(--accent); margin-bottom: 0.6em; }
+    .reveal h3 { font-size: 1em; color: var(--accent2); margin-bottom: 0.4em; }
+
+    /* ── Subtitle / meta ── */
+    .subtitle {
+      font-size: 0.7em;
+      color: var(--muted);
+      margin-top: 0.4em;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ── Divider label ── */
+    .section-label {
+      display: inline-block;
+      font-size: 0.6em;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 2px;
+      padding: 0.15em 0.6em;
+      margin-bottom: 0.6em;
+    }
+
+    /* ── Cards ── */
+    .cards {
+      display: grid;
+      gap: 0.7em;
+    }
+    .cards.cols-2 { grid-template-columns: 1fr 1fr; }
+    .cards.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 0.8em 1em;
+      text-align: left;
+    }
+    .card h3 { margin: 0 0 0.25em; font-size: 0.85em; }
+    .card p, .card li { font-size: 0.65em; color: rgba(255,255,255,0.75); margin: 0; }
+    .card ul { padding-left: 1em; margin: 0; }
+    .card .icon { font-size: 1.4em; margin-bottom: 0.2em; display: block; }
+
+    /* ── Foundation pills ── */
+    .foundation {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4em;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 100px;
+      padding: 0.25em 0.7em;
+      font-size: 0.65em;
+      margin: 0.2em;
+    }
+    .foundation .dot {
+      width: 0.6em; height: 0.6em;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* foundation colors */
+    .c-care    { background: #e57373; }
+    .c-fair    { background: #81c784; }
+    .c-loyal   { background: #64b5f6; }
+    .c-auth    { background: #ffd54f; }
+    .c-sanct   { background: #ce93d8; }
+    .c-lib     { background: #ff8a65; }
+
+    /* ── Party bar chart ── */
+    .party-grid {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 0.4em 0.8em;
+      align-items: center;
+      font-size: 0.62em;
+    }
+    .party-label { text-align: right; color: var(--muted); white-space: nowrap; }
+    .bar-wrap {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 2px;
+      height: 1.4em;
+    }
+    .bar-seg {
+      border-radius: 3px;
+      transition: opacity 0.3s;
+    }
+    .bar-seg.low   { opacity: 0.25; }
+    .bar-seg.mid   { opacity: 0.6;  }
+    .bar-seg.high  { opacity: 1;    }
+
+    /* ── Quote ── */
+    blockquote.haidt {
+      border-left: 3px solid var(--accent);
+      padding-left: 1em;
+      font-style: italic;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.75em;
+      text-align: left;
+      margin: 0.8em 0;
+    }
+    blockquote.haidt cite {
+      display: block;
+      margin-top: 0.4em;
+      font-size: 0.8em;
+      font-style: normal;
+      color: var(--muted);
+    }
+
+    /* ── Timeline ── */
+    .timeline {
+      list-style: none;
+      padding: 0; margin: 0;
+      border-left: 2px solid var(--card-border);
+      padding-left: 1.2em;
+      text-align: left;
+      font-size: 0.65em;
+    }
+    .timeline li {
+      position: relative;
+      margin-bottom: 0.5em;
+      color: rgba(255,255,255,0.8);
+    }
+    .timeline li::before {
+      content: '';
+      position: absolute;
+      left: -1.45em;
+      top: 0.35em;
+      width: 0.55em; height: 0.55em;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+    .timeline .year {
+      color: var(--accent);
+      font-weight: 700;
+      margin-right: 0.4em;
+    }
+
+    /* ── Spectrum bar ── */
+    .spectrum {
+      height: 0.5em;
+      border-radius: 100px;
+      background: linear-gradient(90deg, #4fc3f7, #ce93d8, #e57373);
+      margin: 0.4em 0 0.2em;
+    }
+    .spectrum-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.55em;
+      color: var(--muted);
+    }
+
+    /* ── Utilities ── */
+    .text-muted  { color: var(--muted); }
+    .text-accent { color: var(--accent); }
+    .text-accent2 { color: var(--accent2); }
+    .small { font-size: 0.65em; }
+    .mt { margin-top: 0.6em; }
+
+    .reveal ul { list-style: none; padding: 0; }
+    .reveal ul li::before { content: '→ '; color: var(--accent); }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5em;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <a class="back-link" href="../../index.html">← Alle Präsentationen</a>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ═══════════════════════════════════════════════════
+           TITELFOLIE
+      ════════════════════════════════════════════════════ -->
+      <section>
+        <p class="section-label">Moralpsychologie</p>
+        <h1>Moral Foundations<br>Theory</h1>
+        <p class="subtitle">Warum gute Menschen durch Politik &amp; Religion gespalten sind</p>
+        <p class="small mt text-muted">
+          Nach Jonathan Haidt · <em>The Righteous Mind</em> (2012)
+        </p>
+        <aside class="notes">
+          Herzlich willkommen. Heute schauen wir uns eine der einflussreichsten
+          moralpsychologischen Theorien der letzten Jahrzehnte an und übertragen
+          sie auf die deutsche Politiklandschaft.
+        </aside>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════
+           TEIL 1 – JONATHAN HAIDT
+      ════════════════════════════════════════════════════ -->
+      <section>
+        <p class="section-label">Teil 1</p>
+        <h2 style="color:#fff; font-size:1.6em;">Jonathan Haidt</h2>
+        <p class="text-muted small">Sozialpsychologe · Moralphilosoph · Öffentlicher Intellektueller</p>
+      </section>
+
+      <section>
+        <h2>Biografie &amp; Akademische Karriere</h2>
+        <ul class="timeline">
+          <li><span class="year">1963</span>Geboren in New York City</li>
+          <li><span class="year">1985</span>B.A. in Philosophie, Yale University</li>
+          <li><span class="year">1992</span>Ph.D. in Sozialpsychologie, University of Pennsylvania (Advisor: Jonathan Baron)</li>
+          <li><span class="year">1992–2011</span>Professor an der University of Virginia</li>
+          <li><span class="year">2001</span>Sozial-Intuitionist-Modell – Emotionen leiten Moralurteile</li>
+          <li><span class="year">2004</span>Erste Formulierung der Moral Foundations Theory (mit Craig Joseph)</li>
+          <li><span class="year">2011–heute</span>Professor für Ethische Führung, NYU Stern School of Business</li>
+          <li><span class="year">2012</span><em>The Righteous Mind</em> – New York Times Bestseller</li>
+          <li><span class="year">2015</span>Mitgründer der <strong>Heterodox Academy</strong> (Meinungsvielfalt in der Wissenschaft)</li>
+          <li><span class="year">2024</span><em>The Anxious Generation</em> – Smartphones &amp; Jugendliche</li>
+        </ul>
+        <aside class="notes">
+          Haidt startete als klassischer Moralphilosoph, wurde aber durch Feldforschung in Brasilien
+          und Indien zur Frage geführt: Sind Moralurteile universal oder kulturell?
+        </aside>
+      </section>
+
+      <section>
+        <h2>Hauptwerke &amp; Kernthesen</h2>
+        <div class="cards cols-3">
+          <div class="card">
+            <span class="icon">📖</span>
+            <h3>The Happiness Hypothesis (2006)</h3>
+            <p>Alte Weisheiten der Philosophie im Licht moderner Psychologie – der „Elefant und der Reiter".</p>
+          </div>
+          <div class="card">
+            <span class="icon">🧠</span>
+            <h3>The Righteous Mind (2012)</h3>
+            <p>Moralpsychologie, politische Spaltung und sechs universale Grundlagen moralischen Denkens.</p>
+          </div>
+          <div class="card">
+            <span class="icon">📱</span>
+            <h3>The Anxious Generation (2024)</h3>
+            <p>Wie Smartphones und soziale Medien eine Generation in die psychische Krise führen.</p>
+          </div>
+        </div>
+        <blockquote class="haidt mt">
+          „Intuitions come first, strategic reasoning second."
+          <cite>— The Righteous Mind, S. 44</cite>
+        </blockquote>
+      </section>
+
+      <section>
+        <h2>Das Elefanten-Modell</h2>
+        <div class="two-col">
+          <div>
+            <h3>🐘 Der Elefant</h3>
+            <ul>
+              <li>Emotionen &amp; Intuitionen</li>
+              <li>Automatisch, blitzschnell</li>
+              <li>Trifft Moralurteile</li>
+              <li>95 % unseres Denkens</li>
+            </ul>
+          </div>
+          <div>
+            <h3>🧑‍✈️ Der Reiter</h3>
+            <ul>
+              <li>Rationales Denken</li>
+              <li>Langsam, bewusst</li>
+              <li>Rechtfertigt Urteile nachträglich</li>
+              <li>„Press secretary", nicht Richter</li>
+            </ul>
+          </div>
+        </div>
+        <blockquote class="haidt mt">
+          „The rider serves the elephant."
+          <cite>— Haidt, 2012</cite>
+        </blockquote>
+        <aside class="notes">
+          Diese Erkenntnis ist fundamental: Wir glauben, wir denken rational über Moral nach –
+          tatsächlich rechtfertigen wir nur, was wir bereits intuitiv spüren.
+        </aside>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════
+           TEIL 2 – THEORIE
+      ════════════════════════════════════════════════════ -->
+      <section>
+        <p class="section-label">Teil 2</p>
+        <h2 style="color:#fff; font-size:1.6em;">Moral Foundations Theory</h2>
+        <p class="text-muted small">Einführung &amp; aktueller Forschungsstand</p>
+      </section>
+
+      <section>
+        <h2>Was sind Moralische Grundlagen?</h2>
+        <p class="small">MFT geht davon aus, dass menschliche Moral auf mehreren angeborenen, aber kulturell geformten psychologischen Systemen basiert – entstanden durch Evolution und soziale Selektion.</p>
+        <div class="cards cols-2 mt">
+          <div class="card">
+            <h3>Angeboren (Natur)</h3>
+            <ul>
+              <li>Evolutionäre Prädispositionen</li>
+              <li>Universell über Kulturen</li>
+              <li>Erste Intuition: Schmerz, Ekel, Verrat</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Kulturell geformt (Nurture)</h3>
+            <ul>
+              <li>Unterschiedliche Gewichtung je Kultur</li>
+              <li>Politische Ideologie formt Prioritäten</li>
+              <li>Sprache &amp; Narrative formen Moral</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small mt text-muted">Methodik: Moral Foundations Questionnaire (MFQ) → jetzt MFQ2 (Atari et al., 2023)</p>
+      </section>
+
+      <section>
+        <h2>Die 6 Moralischen Grundlagen</h2>
+        <div class="cards">
+          <div class="card" style="border-left: 3px solid #e57373;">
+            <h3><span style="color:#e57373">● Care / Fürsorge</span> vs. Harm / Schaden</h3>
+            <p>Mitgefühl für Leidende, Schutz des Schwachen. Evolutionär: Kinderfürsorge. <strong>Trigger:</strong> Bilder von leidenden Kindern, Tieren.</p>
+          </div>
+          <div class="card" style="border-left: 3px solid #81c784;">
+            <h3><span style="color:#81c784">● Fairness / Proportionalität</span> vs. Cheating / Betrug</h3>
+            <p>Reziproker Altruismus, Verdienst, Gerechtigkeit. <strong>Trigger:</strong> Jemand betrügt das System, erhält unverdiente Vorteile.</p>
+          </div>
+          <div class="card" style="border-left: 3px solid #64b5f6;">
+            <h3><span style="color:#64b5f6">● Loyalty / Treue</span> vs. Betrayal / Verrat</h3>
+            <p>Gruppensolidarität, Patriotismus, Mannschaftsgeist. <strong>Trigger:</strong> Fahne verbrennen, Landesverrat.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Die ersten drei Grundlagen sind am stärksten bei progressiven Parteien aktiv –
+          besonders Care und Fairness.
+        </aside>
+      </section>
+
+      <section>
+        <h2>Die 6 Moralischen Grundlagen (Forts.)</h2>
+        <div class="cards">
+          <div class="card" style="border-left: 3px solid #ffd54f;">
+            <h3><span style="color:#ffd54f">● Authority / Autorität</span> vs. Subversion</h3>
+            <p>Hierarchie, Respekt, Tradition, Führung. <strong>Trigger:</strong> Respektlosigkeit gegenüber Institutionen, Eltern, Lehrern.</p>
+          </div>
+          <div class="card" style="border-left: 3px solid #ce93d8;">
+            <h3><span style="color:#ce93d8">● Sanctity / Heiligkeit</span> vs. Degradation / Entweihung</h3>
+            <p>Reinheit, Ekel-Psychologie, das Erhabene. <strong>Trigger:</strong> Tabubrüche, das „Falsche" essen, religiöse Entweihung.</p>
+          </div>
+          <div class="card" style="border-left: 3px solid #ff8a65;">
+            <h3><span style="color:#ff8a65">● Liberty / Freiheit</span> vs. Oppression / Unterdrückung</h3>
+            <p>Anti-Dominanz, Selbstbestimmung, Ressentiment gegen Willkür. <strong>Trigger:</strong> Staatlicher Zwang, Nanny-State, Bevormundung.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Liberty wurde erst 2012 als sechste Grundlage hinzugefügt – sie erklärt sowohl
+          libertäre Bewegungen als auch den Populismus links wie rechts.
+        </aside>
+      </section>
+
+      <section>
+        <h2>Links vs. Rechts – Das Kernmuster</h2>
+        <div class="two-col">
+          <div>
+            <h3>🔵 Progressive / Links</h3>
+            <ul>
+              <li>Care &amp; Fairness: <strong>sehr hoch</strong></li>
+              <li>Liberty: mittel (gegen Konzerne)</li>
+              <li>Loyalty, Authority, Sanctity: <strong>niedrig</strong></li>
+            </ul>
+            <p class="small mt text-muted">„Two-foundation morality"</p>
+          </div>
+          <div>
+            <h3>🔴 Konservative / Rechts</h3>
+            <ul>
+              <li>Alle 6 Grundlagen: <strong>gleichmäßig aktiv</strong></li>
+              <li>Authority &amp; Loyalty: besonders stark</li>
+              <li>Sanctity: kulturell stark geprägt</li>
+            </ul>
+            <p class="small mt text-muted">„Six-foundation morality"</p>
+          </div>
+        </div>
+        <blockquote class="haidt mt">
+          „Conservatives understand liberals better than liberals understand conservatives."
+          <cite>— Haidt, 2012</cite>
+        </blockquote>
+        <aside class="notes">
+          Dies ist Haidts provokanteste These: Konservative nutzen ein breiteres moralisches
+          Vokabular. Progressive verlieren Wähler, weil sie nur auf Care und Fairness setzen.
+        </aside>
+      </section>
+
+      <section>
+        <h2>Aktueller Forschungsstand</h2>
+        <div class="cards cols-2">
+          <div class="card">
+            <h3>✅ Bestätigungen</h3>
+            <ul>
+              <li>MFQ2 (Atari et al., 2023): verbesserte Messung, breitere Kulturen</li>
+              <li>Replikation in 27+ Ländern</li>
+              <li>Neurowissenschaftliche Korrelate gefunden (fMRI-Studien)</li>
+              <li>Politische Vorhersagekraft bestätigt</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>⚠️ Kritik &amp; Erweiterungen</h3>
+            <ul>
+              <li>Sinn et al. (2018): Faktorstruktur fraglich</li>
+              <li>WEIRD-Bias: Theorie aus westlichen Stichproben</li>
+              <li>Neue Kandidaten: <em>Ownership</em> (Eigentum), <em>Honesty</em></li>
+              <li>Überschneidung von Care &amp; Fairness bei Progressiven</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>🔬 Neue Erkenntnisse</h3>
+            <ul>
+              <li>MFT erklärt Polarisierung in sozialen Medien</li>
+              <li>Moralische Sprache auf Twitter → Virality (Brady et al., 2017)</li>
+              <li>Gezielte Moral-Frames erhöhen Überzeugungskraft</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>📊 Methodik heute</h3>
+            <ul>
+              <li>MFQ2: 36 Items, 6 Skalen (2023)</li>
+              <li>Implicit Association Tests</li>
+              <li>Text-Mining aus politischen Reden</li>
+              <li>Social-Media-Analyse</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════
+           TEIL 3 – DEUTSCHLAND
+      ════════════════════════════════════════════════════ -->
+      <section>
+        <p class="section-label">Teil 3</p>
+        <h2 style="color:#fff; font-size:1.6em;">Deutsche Parteienlandschaft</h2>
+        <p class="text-muted small">MFT übertragen auf das Parteiensystem</p>
+      </section>
+
+      <section>
+        <h2>Methode der Übertragung</h2>
+        <p class="small">Da es keine groß angelegte MFQ-Studie für deutsche Parteien gibt, stützt sich die Analyse auf:</p>
+        <div class="cards cols-3 mt">
+          <div class="card">
+            <span class="icon">📜</span>
+            <h3>Wahlprogramme</h3>
+            <p>Qualitative Analyse der Kernversprechen und ihrer moralischen Rahmung (Framing).</p>
+          </div>
+          <div class="card">
+            <span class="icon">🗣️</span>
+            <h3>Politische Rhetorik</h3>
+            <p>Welche moralischen Gefühle werden angesprochen? Wer sind die „Täter", wer die „Opfer"?</p>
+          </div>
+          <div class="card">
+            <span class="icon">🔬</span>
+            <h3>Komparative Forschung</h3>
+            <p>Übertragung von MFT-Mustern aus vergleichbaren westeuropäischen Demokratien.</p>
+          </div>
+        </div>
+        <div class="mt">
+          <span class="foundation"><span class="dot c-care"></span> Care</span>
+          <span class="foundation"><span class="dot c-fair"></span> Fairness</span>
+          <span class="foundation"><span class="dot c-loyal"></span> Loyalität</span>
+          <span class="foundation"><span class="dot c-auth"></span> Autorität</span>
+          <span class="foundation"><span class="dot c-sanct"></span> Heiligkeit</span>
+          <span class="foundation"><span class="dot c-lib"></span> Freiheit</span>
+        </div>
+      </section>
+
+      <section>
+        <h2>Parteien im Überblick</h2>
+        <div class="party-grid">
+
+          <div class="party-label">SPD</div>
+          <div class="bar-wrap">
+            <div class="bar-seg high"   style="background:#e57373"></div>
+            <div class="bar-seg high"   style="background:#81c784"></div>
+            <div class="bar-seg mid"    style="background:#64b5f6"></div>
+            <div class="bar-seg mid"    style="background:#ffd54f"></div>
+            <div class="bar-seg low"    style="background:#ce93d8"></div>
+            <div class="bar-seg mid"    style="background:#ff8a65"></div>
+          </div>
+
+          <div class="party-label">Grüne</div>
+          <div class="bar-wrap">
+            <div class="bar-seg high"   style="background:#e57373"></div>
+            <div class="bar-seg high"   style="background:#81c784"></div>
+            <div class="bar-seg low"    style="background:#64b5f6"></div>
+            <div class="bar-seg low"    style="background:#ffd54f"></div>
+            <div class="bar-seg mid"    style="background:#ce93d8"></div>
+            <div class="bar-seg mid"    style="background:#ff8a65"></div>
+          </div>
+
+          <div class="party-label">CDU/CSU</div>
+          <div class="bar-wrap">
+            <div class="bar-seg mid"    style="background:#e57373"></div>
+            <div class="bar-seg mid"    style="background:#81c784"></div>
+            <div class="bar-seg high"   style="background:#64b5f6"></div>
+            <div class="bar-seg high"   style="background:#ffd54f"></div>
+            <div class="bar-seg high"   style="background:#ce93d8"></div>
+            <div class="bar-seg mid"    style="background:#ff8a65"></div>
+          </div>
+
+          <div class="party-label">FDP</div>
+          <div class="bar-wrap">
+            <div class="bar-seg low"    style="background:#e57373"></div>
+            <div class="bar-seg mid"    style="background:#81c784"></div>
+            <div class="bar-seg low"    style="background:#64b5f6"></div>
+            <div class="bar-seg mid"    style="background:#ffd54f"></div>
+            <div class="bar-seg low"    style="background:#ce93d8"></div>
+            <div class="bar-seg high"   style="background:#ff8a65"></div>
+          </div>
+
+          <div class="party-label">AfD</div>
+          <div class="bar-wrap">
+            <div class="bar-seg mid"    style="background:#e57373"></div>
+            <div class="bar-seg mid"    style="background:#81c784"></div>
+            <div class="bar-seg high"   style="background:#64b5f6"></div>
+            <div class="bar-seg high"   style="background:#ffd54f"></div>
+            <div class="bar-seg high"   style="background:#ce93d8"></div>
+            <div class="bar-seg high"   style="background:#ff8a65"></div>
+          </div>
+
+          <div class="party-label">BSW / Linke</div>
+          <div class="bar-wrap">
+            <div class="bar-seg high"   style="background:#e57373"></div>
+            <div class="bar-seg high"   style="background:#81c784"></div>
+            <div class="bar-seg mid"    style="background:#64b5f6"></div>
+            <div class="bar-seg low"    style="background:#ffd54f"></div>
+            <div class="bar-seg low"    style="background:#ce93d8"></div>
+            <div class="bar-seg mid"    style="background:#ff8a65"></div>
+          </div>
+
+        </div>
+        <div class="mt" style="font-size:0.52em; color:var(--muted)">
+          <span style="opacity:1">■</span> hoch &nbsp;
+          <span style="opacity:0.6">■</span> mittel &nbsp;
+          <span style="opacity:0.25">■</span> niedrig &nbsp;|&nbsp;
+          <span style="color:#e57373">■</span> Care
+          <span style="color:#81c784">■</span> Fairness
+          <span style="color:#64b5f6">■</span> Loyalität
+          <span style="color:#ffd54f">■</span> Autorität
+          <span style="color:#ce93d8">■</span> Heiligkeit
+          <span style="color:#ff8a65">■</span> Freiheit
+        </div>
+        <aside class="notes">
+          Die AfD ist die einzige Partei, die alle sechs Grundlagen gleichzeitig und stark bespielt –
+          ähnlich dem Muster US-amerikanischer Konservativer.
+        </aside>
+      </section>
+
+      <section>
+        <h2>SPD – Die Fürsorge-Partei</h2>
+        <div class="cards cols-2">
+          <div class="card">
+            <h3>Dominante Grundlagen</h3>
+            <ul>
+              <li><span style="color:#e57373">●</span> Care: Sozialstaat, Rente, Pflege</li>
+              <li><span style="color:#81c784">●</span> Fairness: Mindestlohn, gleiche Chancen</li>
+              <li><span style="color:#64b5f6">●</span> Loyalität: Gewerkschaften, Solidarität</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Typische Frames</h3>
+            <ul>
+              <li>„Niemand darf zurückgelassen werden"</li>
+              <li>„Leistung muss sich lohnen"</li>
+              <li>„Zusammenhalt stärken"</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small mt text-muted">Haidt-Diagnose: Starke Resonanz bei Care-sensitiven Wählern, aber schwache Ansprache der Authority/Sanctity-Wählerschaft → verliert traditionelle Arbeitermilieus an AfD.</p>
+      </section>
+
+      <section>
+        <h2>Grüne – Fürsorge mit Reinheits-Frame</h2>
+        <div class="cards cols-2">
+          <div class="card">
+            <h3>Dominante Grundlagen</h3>
+            <ul>
+              <li><span style="color:#e57373">●</span> Care: Klima, Natur, Tiere</li>
+              <li><span style="color:#81c784">●</span> Fairness: Klimagerechtigkeit, Global South</li>
+              <li><span style="color:#ce93d8">●</span> Heiligkeit: Natur als Heiligtum, Reinheit</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Typische Frames</h3>
+            <ul>
+              <li>„Die Erde verschmutzen ist eine Sünde"</li>
+              <li>„Unsere Kinder verdienen eine saubere Welt"</li>
+              <li>„Klimagerechtigkeit jetzt"</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small mt text-muted">Haidt-Diagnose: Sanctity-Frame (Naturreinheit) schafft starke emotionale Bindung – aber wirkt auf Authority-orientierte Wähler wie moralische Bevormundung.</p>
+      </section>
+
+      <section>
+        <h2>CDU/CSU – Das konservative Vollspektrum</h2>
+        <div class="cards cols-2">
+          <div class="card">
+            <h3>Dominante Grundlagen</h3>
+            <ul>
+              <li><span style="color:#64b5f6">●</span> Loyalität: Nation, Familie, Heimat</li>
+              <li><span style="color:#ffd54f">●</span> Autorität: Recht &amp; Ordnung, Institutionen</li>
+              <li><span style="color:#ce93d8">●</span> Heiligkeit: christliche Leitkultur, Tradition</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Typische Frames</h3>
+            <ul>
+              <li>„Sicherheit und Ordnung"</li>
+              <li>„Deutschland zuerst verantwortungsvoll regieren"</li>
+              <li>„Abendländische Werte bewahren"</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small mt text-muted">Haidt-Diagnose: Breitestes Moralspektrum aller Volksparteien. Kann theoretisch alle Wählersegmente ansprechen – verliert aber bei Fairness an Glaubwürdigkeit.</p>
+      </section>
+
+      <section>
+        <h2>AfD – Das Sechs-Grundlagen-Modell</h2>
+        <div class="cards cols-2">
+          <div class="card">
+            <h3>Dominante Grundlagen</h3>
+            <ul>
+              <li><span style="color:#64b5f6">●</span> Loyalität: „Das Volk", Deutschland</li>
+              <li><span style="color:#ffd54f">●</span> Autorität: starker Staat, Abschiebungen</li>
+              <li><span style="color:#ce93d8">●</span> Heiligkeit: kulturelle Reinheit, Leitkultur</li>
+              <li><span style="color:#ff8a65">●</span> Freiheit: Anti-Establishment, Bürgerrechte</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Typische Frames</h3>
+            <ul>
+              <li>„Unser Land zuerst"</li>
+              <li>„Wir sind das Volk"</li>
+              <li>„Der Staat versagt – wir sprechen die Wahrheit"</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small mt text-muted">Haidt-Diagnose: Bespielt als einzige deutsche Partei alle sechs Grundlagen gleichzeitig und intensiv → maximale emotionale Reichweite, besonders bei abgehängten Wählern.</p>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════
+           TEIL 4 – FDP & MFT
+      ════════════════════════════════════════════════════ -->
+      <section>
+        <p class="section-label">Teil 4</p>
+        <h2 style="color:#fff; font-size:1.6em;">FDP &amp; Moral Foundations</h2>
+        <p class="text-muted small">Diagnose und praktische Übertragung</p>
+      </section>
+
+      <section>
+        <h2>FDP – Aktuelle Moralische Positionierung</h2>
+        <div class="cards cols-2">
+          <div class="card">
+            <h3>Aktiv bespielt</h3>
+            <ul>
+              <li><span style="color:#ff8a65">●</span> <strong>Freiheit:</strong> Eigenverantwortung, Bürgerrechte, weniger Staat</li>
+              <li><span style="color:#81c784">●</span> <strong>Fairness (Leistung):</strong> Wer arbeitet, soll profitieren</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Kaum bespielt</h3>
+            <ul>
+              <li><span style="color:#e57373">●</span> Care: fast absent</li>
+              <li><span style="color:#64b5f6">●</span> Loyalität: schwach</li>
+              <li><span style="color:#ffd54f">●</span> Autorität: ambivalent</li>
+              <li><span style="color:#ce93d8">●</span> Heiligkeit: praktisch null</li>
+            </ul>
+          </div>
+        </div>
+        <blockquote class="haidt mt">
+          Haidt-Diagnose: Die FDP spricht eine der engsten moralischen Sprachen aller deutschen Parteien.
+          Sie verliert, weil sie nur Wähler mit hoher Freiheitsorientierung erreicht –
+          eine Minderheit im Moralspektrum.
+        </blockquote>
+      </section>
+
+      <section>
+        <h2>Das Problem: Freedom Alone Doesn't Win</h2>
+        <p class="small">Forschungsbefund: Reine Freiheits-Rhetorik mobilisiert nur libertär-orientierte Wähler (~10–15 %). Warum?</p>
+        <div class="cards mt">
+          <div class="card">
+            <h3>Brady et al. (2017) – Twitter-Studie</h3>
+            <p>Moralisch-emotionale Sprache verbreitet sich 20 % schneller pro moralischem Wort. Freiheit allein erzeugt wenig virale Empörung oder Verbundenheit.</p>
+          </div>
+          <div class="card">
+            <h3>Feinberg &amp; Willer (2015)</h3>
+            <p>Politische Botschaften sind dann überzeugend, wenn sie in den moralischen Werten des Publikums gerahmt werden – nicht in den eigenen.</p>
+          </div>
+          <div class="card">
+            <h3>Konsequenz für FDP</h3>
+            <p>Ohne Care-, Fairness- und Loyalty-Ansprache verliert die FDP Wähler der gesellschaftlichen Mitte an CDU und SPD – und unterschreitet die 5 %-Hürde.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          2025 hat die FDP tatsächlich die 5%-Hürde verfehlt. Das ist kein Zufall.
+        </aside>
+      </section>
+
+      <section>
+        <h2>Empfehlung 1: Freiheit durch Care rahmen</h2>
+        <div class="two-col">
+          <div>
+            <h3>❌ Aktuell</h3>
+            <blockquote class="haidt">
+              „Bürger müssen selbst entscheiden, wie sie ihr Geld ausgeben."
+            </blockquote>
+            <p class="small text-muted">Ansprache: Freiheit. Emotion: Rationalität, kein Herz.</p>
+          </div>
+          <div>
+            <h3>✅ MFT-optimiert</h3>
+            <blockquote class="haidt">
+              „Wir entlasten Familien, damit Eltern mehr Zeit für ihre Kinder haben – nicht der Staat entscheidet, was gut für Ihre Familie ist."
+            </blockquote>
+            <p class="small text-muted">Ansprache: Freiheit <strong>+</strong> Care. Zielgruppe: deutlich breiter.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Dies ist das wichtigste Werkzeug: Moral Reframing. Die Policy bleibt dieselbe,
+          aber die emotionale Rahmung öffnet neue Wählersegmente.
+        </aside>
+      </section>
+
+      <section>
+        <h2>Empfehlung 2: Fairness als Leistungs-Gerechtigkeit</h2>
+        <div class="two-col">
+          <div>
+            <h3>❌ Aktuell</h3>
+            <blockquote class="haidt">
+              „Steuersenkungen für Unternehmen stärken den Standort."
+            </blockquote>
+            <p class="small text-muted">Wirkt: Wirtschafts-Lobbying, kalt, ungerecht.</p>
+          </div>
+          <div>
+            <h3>✅ MFT-optimiert</h3>
+            <blockquote class="haidt">
+              „Wer hart arbeitet, darf am Ende des Monats nicht weniger haben als jemand, der nicht arbeitet. Das ist eine Frage der Gerechtigkeit."
+            </blockquote>
+            <p class="small text-muted">Ansprache: Fairness + Freiheit. Zielgruppe: Mittelschicht, Aufsteiger.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Empfehlung 3: Loyalität zur nächsten Generation</h2>
+        <div class="two-col">
+          <div>
+            <h3>❌ Aktuell</h3>
+            <blockquote class="haidt">
+              „Die Schuldenbremse ist verfassungsrechtlich geboten."
+            </blockquote>
+            <p class="small text-muted">Wirkt: technokratisch, kalt, unzugänglich.</p>
+          </div>
+          <div>
+            <h3>✅ MFT-optimiert</h3>
+            <blockquote class="haidt">
+              „Unsere Kinder dürfen nicht für unsere Fehler zahlen. Schulden heute sind Steuern morgen – das ist unsolidarisch gegenüber der nächsten Generation."
+            </blockquote>
+            <p class="small text-muted">Ansprache: Loyalität + Care. Emotionaler Anker: Generationengerechtigkeit.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Empfehlung 4: Autorität durch Rechtsstaat</h2>
+        <div class="two-col">
+          <div>
+            <h3>❌ Aktuell</h3>
+            <blockquote class="haidt">
+              „Wir brauchen weniger Regulierung."
+            </blockquote>
+            <p class="small text-muted">Wirkt: pro-Wirtschaft, anti-Regel, schwächend.</p>
+          </div>
+          <div>
+            <h3>✅ MFT-optimiert</h3>
+            <blockquote class="haidt">
+              „Gleiche Regeln für alle – ob Großkonzern oder kleiner Handwerksbetrieb. Ein starker Rechtsstaat schützt die Ehrlichen vor den Betrügern."
+            </blockquote>
+            <p class="small text-muted">Ansprache: Autorität + Fairness. Zielgruppe: Mittelstand, Ordnungsliebende.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Das FDP-Moralspektrum: Vorher / Nachher</h2>
+        <div class="party-grid">
+          <div class="party-label" style="color:#aaa;">Vorher</div>
+          <div class="bar-wrap">
+            <div class="bar-seg low"    style="background:#e57373"></div>
+            <div class="bar-seg mid"    style="background:#81c784"></div>
+            <div class="bar-seg low"    style="background:#64b5f6"></div>
+            <div class="bar-seg mid"    style="background:#ffd54f"></div>
+            <div class="bar-seg low"    style="background:#ce93d8"></div>
+            <div class="bar-seg high"   style="background:#ff8a65"></div>
+          </div>
+
+          <div class="party-label" style="color:#e8a838;">Nachher</div>
+          <div class="bar-wrap">
+            <div class="bar-seg mid"    style="background:#e57373"></div>
+            <div class="bar-seg high"   style="background:#81c784"></div>
+            <div class="bar-seg mid"    style="background:#64b5f6"></div>
+            <div class="bar-seg mid"    style="background:#ffd54f"></div>
+            <div class="bar-seg low"    style="background:#ce93d8"></div>
+            <div class="bar-seg high"   style="background:#ff8a65"></div>
+          </div>
+        </div>
+        <p class="small mt">Durch gezieltes Reframing kann die FDP ihr Moralspektrum deutlich erweitern, ohne ihre Kernpositionen aufzugeben. Freiheit bleibt die Hauptgrundlage – sie wird aber durch Care, Fairness und Loyalität ergänzt und damit für deutlich mehr Wähler anschlussfähig.</p>
+        <div class="mt" style="font-size:0.52em; color:var(--muted)">
+          <span style="color:#e57373">■</span> Care
+          <span style="color:#81c784">■</span> Fairness
+          <span style="color:#64b5f6">■</span> Loyalität
+          <span style="color:#ffd54f">■</span> Autorität
+          <span style="color:#ce93d8">■</span> Heiligkeit
+          <span style="color:#ff8a65">■</span> Freiheit
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════
+           FAZIT
+      ════════════════════════════════════════════════════ -->
+      <section>
+        <h2>Fazit</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>🧠 Moralpsychologie</h3>
+            <p>Menschen urteilen zuerst intuitiv – Moral ist nicht rational, sondern emotional und kulturell eingebettet.</p>
+          </div>
+          <div class="card">
+            <h3>🗂️ Sechs Grundlagen</h3>
+            <p>Care, Fairness, Loyalität, Autorität, Heiligkeit und Freiheit sind universelle, aber unterschiedlich gewichtete moralische Antriebe.</p>
+          </div>
+          <div class="card">
+            <h3>🇩🇪 Deutschland</h3>
+            <p>Parteien bespielen unterschiedliche Grundlagen – wer nur wenige anspricht, verliert Wähler an breitere Moral-Portfolios.</p>
+          </div>
+          <div class="card">
+            <h3>🟡 FDP-Empfehlung</h3>
+            <p>Freiheit als Kern beibehalten – aber durch Care (Familie), Fairness (Leistung) und Loyalität (Generationen) ergänzen.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Das zentrale Take-Away: Politische Kommunikation, die nur auf einer Grundlage beruht,
+          ist strukturell benachteiligt. MFT bietet ein Werkzeug zur gezielten Erweiterung des
+          moralischen Vokabulars – ohne Positionswechsel.
+        </aside>
+      </section>
+
+      <section>
+        <h2>Weiterführende Quellen</h2>
+        <ul class="timeline">
+          <li>Haidt, J. (2012). <em>The Righteous Mind.</em> Pantheon Books.</li>
+          <li>Graham, J., Haidt, J. &amp; Nosek, B. A. (2009). Liberals and conservatives rely on different sets of moral foundations. <em>JPSP.</em></li>
+          <li>Atari, M. et al. (2023). Morality Beyond the WEIRD: How the Nomological Network of Morality Varies Across Cultures. <em>JPSP.</em></li>
+          <li>Brady, W. J. et al. (2017). Emotion shapes the diffusion of moralized content in social networks. <em>PNAS.</em></li>
+          <li>Feinberg, M. &amp; Willer, R. (2015). From Gulf to Bridge: When Do Moral Arguments Facilitate Political Influence? <em>Personality and Social Psychology Bulletin.</em></li>
+          <li>Sinn, J. S. &amp; Hayes, M. W. (2017). Replacing the Moral Foundations. <em>Social Psychological &amp; Personality Science.</em></li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>Danke.</h1>
+        <p class="text-muted small">Fragen? Diskussion?</p>
+        <p class="mt"><a href="../../index.html" style="color:var(--accent); font-size:0.7em;">← Zurück zur Übersicht</a></p>
+      </section>
+
+    </div>
+  </div>
+
+  <script type="module">
+    import Reveal from '../../node_modules/reveal.js/dist/reveal.esm.js'
+    import Highlight from '../../node_modules/reveal.js/plugin/highlight/highlight.esm.js'
+    import Notes from '../../node_modules/reveal.js/plugin/notes/notes.esm.js'
+
+    Reveal.initialize({
+      hash: true,
+      transition: 'fade',
+      transitionSpeed: 'fast',
+      plugins: [Highlight, Notes],
+    })
+  </script>
+</body>
+</html>
