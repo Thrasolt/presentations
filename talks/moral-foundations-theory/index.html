@@ -206,6 +206,57 @@
       gap: 1.5em;
       text-align: left;
     }
+
+    /* ── Foundation detail slides ── */
+    .fd-hero {
+      font-size: 2.4em;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+    }
+    .fd-vs {
+      font-size: 0.52em;
+      color: var(--muted);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      margin-top: 0.2em;
+    }
+    .fd-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.8em;
+      margin-top: 0.7em;
+    }
+
+    /* ── Party table ── */
+    .party-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.64em;
+      margin-top: 0.6em;
+    }
+    .party-table th {
+      padding: 0.5em 0.6em;
+      font-weight: 700;
+      text-align: center;
+      border-bottom: 1px solid var(--card-border);
+      font-size: 0.9em;
+    }
+    .party-table td {
+      padding: 0.5em 0.6em;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .party-table tr:last-child td { border-bottom: none; }
+    .party-table tr:hover td { background: rgba(255,255,255,0.03); }
+    .party-table .pt-name {
+      text-align: left;
+      color: rgba(255,255,255,0.9);
+      font-weight: 700;
+      white-space: nowrap;
+      padding-right: 1.2em;
+    }
+    .dot3 { letter-spacing: -0.1em; }
   </style>
 </head>
 <body>
@@ -350,48 +401,198 @@
         <p class="small mt text-muted">Methodik: Moral Foundations Questionnaire (MFQ) → jetzt MFQ2 (Atari et al., 2023)</p>
       </section>
 
+      <!-- Überblick -->
       <section>
-        <h2>Die 6 Moralischen Grundlagen</h2>
-        <div class="cards">
-          <div class="card" style="border-left: 3px solid #e57373;">
-            <h3><span style="color:#e57373">● Care / Fürsorge</span> vs. Harm / Schaden</h3>
-            <p>Mitgefühl für Leidende, Schutz des Schwachen. Evolutionär: Kinderfürsorge. <strong>Trigger:</strong> Bilder von leidenden Kindern, Tieren.</p>
+        <h2>Die 6 Moral Foundations – Überblick</h2>
+        <div class="cards cols-2">
+          <div class="card" style="border-left: 4px solid #e57373;">
+            <h3 style="color:#e57373">① Care &nbsp;<span class="text-muted" style="font-size:0.75em">vs. Harm</span></h3>
+            <p>Fürsorge, Mitgefühl, Schutz des Schwachen</p>
           </div>
-          <div class="card" style="border-left: 3px solid #81c784;">
-            <h3><span style="color:#81c784">● Fairness / Proportionalität</span> vs. Cheating / Betrug</h3>
-            <p>Reziproker Altruismus, Verdienst, Gerechtigkeit. <strong>Trigger:</strong> Jemand betrügt das System, erhält unverdiente Vorteile.</p>
+          <div class="card" style="border-left: 4px solid #81c784;">
+            <h3 style="color:#81c784">② Fairness &nbsp;<span class="text-muted" style="font-size:0.75em">vs. Cheating</span></h3>
+            <p>Proportionalität, Verdienst, Reziprozität</p>
           </div>
-          <div class="card" style="border-left: 3px solid #64b5f6;">
-            <h3><span style="color:#64b5f6">● Loyalty / Treue</span> vs. Betrayal / Verrat</h3>
-            <p>Gruppensolidarität, Patriotismus, Mannschaftsgeist. <strong>Trigger:</strong> Fahne verbrennen, Landesverrat.</p>
+          <div class="card" style="border-left: 4px solid #64b5f6;">
+            <h3 style="color:#64b5f6">③ Loyalty &nbsp;<span class="text-muted" style="font-size:0.75em">vs. Betrayal</span></h3>
+            <p>Treue, Gruppensolidarität, Patriotismus</p>
+          </div>
+          <div class="card" style="border-left: 4px solid #ffd54f;">
+            <h3 style="color:#ffd54f">④ Authority &nbsp;<span class="text-muted" style="font-size:0.75em">vs. Subversion</span></h3>
+            <p>Hierarchie, Respekt, Tradition, Ordnung</p>
+          </div>
+          <div class="card" style="border-left: 4px solid #ce93d8;">
+            <h3 style="color:#ce93d8">⑤ Sanctity &nbsp;<span class="text-muted" style="font-size:0.75em">vs. Degradation</span></h3>
+            <p>Reinheit, das Erhabene, Ekel-Psychologie</p>
+          </div>
+          <div class="card" style="border-left: 4px solid #ff8a65;">
+            <h3 style="color:#ff8a65">⑥ Liberty &nbsp;<span class="text-muted" style="font-size:0.75em">vs. Oppression</span></h3>
+            <p>Autonomie, Anti-Dominanz, Selbstbestimmung</p>
           </div>
         </div>
-        <aside class="notes">
-          Die ersten drei Grundlagen sind am stärksten bei progressiven Parteien aktiv –
-          besonders Care und Fairness.
-        </aside>
+        <p class="small mt text-muted">Angeboren → kulturell geformt → politisch aktivierbar</p>
       </section>
 
+      <!-- Care -->
       <section>
-        <h2>Die 6 Moralischen Grundlagen (Forts.)</h2>
-        <div class="cards">
-          <div class="card" style="border-left: 3px solid #ffd54f;">
-            <h3><span style="color:#ffd54f">● Authority / Autorität</span> vs. Subversion</h3>
-            <p>Hierarchie, Respekt, Tradition, Führung. <strong>Trigger:</strong> Respektlosigkeit gegenüber Institutionen, Eltern, Lehrern.</p>
+        <div style="border-left: 5px solid #e57373; padding-left: 0.8em; text-align: left;">
+          <div class="fd-hero" style="color:#e57373">CARE</div>
+          <div class="fd-vs">vs. Harm / Schaden &nbsp;·&nbsp; deutsch: Fürsorge</div>
+        </div>
+        <div class="fd-grid">
+          <div class="card">
+            <h3>🧬 Evolutionärer Ursprung</h3>
+            <p>Schutz von Nachkommen und Hilfsbedürftigen. Säugetiere, die Schwache vernachlässigten, gaben weniger Gene weiter.</p>
           </div>
-          <div class="card" style="border-left: 3px solid #ce93d8;">
-            <h3><span style="color:#ce93d8">● Sanctity / Heiligkeit</span> vs. Degradation / Entweihung</h3>
-            <p>Reinheit, Ekel-Psychologie, das Erhabene. <strong>Trigger:</strong> Tabubrüche, das „Falsche" essen, religiöse Entweihung.</p>
+          <div class="card">
+            <h3>🔥 Trigger</h3>
+            <p>Leidende Kinder, verletzte Tiere, Bilder von Elend und Not. Aktiviert sofort Empathie &amp; Hilfsimpuls.</p>
           </div>
-          <div class="card" style="border-left: 3px solid #ff8a65;">
-            <h3><span style="color:#ff8a65">● Liberty / Freiheit</span> vs. Oppression / Unterdrückung</h3>
-            <p>Anti-Dominanz, Selbstbestimmung, Ressentiment gegen Willkür. <strong>Trigger:</strong> Staatlicher Zwang, Nanny-State, Bevormundung.</p>
+          <div class="card">
+            <h3>🏛️ Politik</h3>
+            <p>Sozialstaat, Krankenkasse, Kindergeld, Tierschutz, Entwicklungshilfe, NGOs, Klimaschutz für Kinder.</p>
           </div>
         </div>
-        <aside class="notes">
-          Liberty wurde erst 2012 als sechste Grundlage hinzugefügt – sie erklärt sowohl
-          libertäre Bewegungen als auch den Populismus links wie rechts.
-        </aside>
+        <blockquote class="haidt mt">
+          „The care/harm foundation makes us sensitive to signs of suffering and need."
+          <cite>— Haidt, 2012</cite>
+        </blockquote>
+        <aside class="notes">Care ist die Foundation mit der stärksten emotionalen Wirkung – Bilder von Kindern in Not überwältigen rationale Gegenargumente.</aside>
+      </section>
+
+      <!-- Fairness -->
+      <section>
+        <div style="border-left: 5px solid #81c784; padding-left: 0.8em; text-align: left;">
+          <div class="fd-hero" style="color:#81c784">FAIRNESS</div>
+          <div class="fd-vs">vs. Cheating / Betrug &nbsp;·&nbsp; deutsch: Proportionalität</div>
+        </div>
+        <div class="fd-grid">
+          <div class="card">
+            <h3>🧬 Evolutionärer Ursprung</h3>
+            <p>Reziproker Altruismus: Kooperation nur, wenn beide Seiten fair beitragen. Betrüger werden erkannt und gemieden.</p>
+          </div>
+          <div class="card">
+            <h3>🔥 Trigger</h3>
+            <p>Jemand betrügt das System, erhält Vorteile ohne Leistung, Steuerhinterziehung, Vitamin-B-Karrieren.</p>
+          </div>
+          <div class="card">
+            <h3>🏛️ Politik</h3>
+            <p>Mindestlohn, Steuergerechtigkeit, Chancengleichheit, Leistungsprinzip, Equal Pay, Anti-Korruption.</p>
+          </div>
+        </div>
+        <blockquote class="haidt mt">
+          „Liberals and conservatives have different intuitions about what fairness means: equality vs. proportionality."
+          <cite>— Graham &amp; Haidt, 2009</cite>
+        </blockquote>
+        <aside class="notes">Wichtig: Links versteht Fairness als Gleichheit, Rechts als Proportionalität (Leistung = Verdienst). Derselbe Begriff, unterschiedliche moralische Logik.</aside>
+      </section>
+
+      <!-- Loyalty -->
+      <section>
+        <div style="border-left: 5px solid #64b5f6; padding-left: 0.8em; text-align: left;">
+          <div class="fd-hero" style="color:#64b5f6">LOYALTY</div>
+          <div class="fd-vs">vs. Betrayal / Verrat &nbsp;·&nbsp; deutsch: Treue &amp; Solidarität</div>
+        </div>
+        <div class="fd-grid">
+          <div class="card">
+            <h3>🧬 Evolutionärer Ursprung</h3>
+            <p>Gruppenverteidigung: Koalitionen gegen Rivalen. Wer die Gruppe verrät, gefährdet das Überleben aller.</p>
+          </div>
+          <div class="card">
+            <h3>🔥 Trigger</h3>
+            <p>Landesverrat, Fahne verbrennen, „Nestbeschmutzer", Streikbrecher, Verrat am Team oder an Freunden.</p>
+          </div>
+          <div class="card">
+            <h3>🏛️ Politik</h3>
+            <p>Patriotismus, Militär, Gewerkschaftssolidarität, „Deutschland zuerst", Mannschaftsgeist, Wir-Gefühl.</p>
+          </div>
+        </div>
+        <blockquote class="haidt mt">
+          „The Loyalty foundation prepares us to be part of a team, to love our team, and to be ready to defend our team."
+          <cite>— Haidt, 2012</cite>
+        </blockquote>
+        <aside class="notes">Loyalty erklärt, warum Menschen ihrer Partei, ihrer Mannschaft oder ihrer Nation gegenüber loyal bleiben – auch wenn sie sachlich im Unrecht sind.</aside>
+      </section>
+
+      <!-- Authority -->
+      <section>
+        <div style="border-left: 5px solid #ffd54f; padding-left: 0.8em; text-align: left;">
+          <div class="fd-hero" style="color:#ffd54f">AUTHORITY</div>
+          <div class="fd-vs">vs. Subversion / Umsturz &nbsp;·&nbsp; deutsch: Respekt &amp; Ordnung</div>
+        </div>
+        <div class="fd-grid">
+          <div class="card">
+            <h3>🧬 Evolutionärer Ursprung</h3>
+            <p>Hierarchien reduzieren innergruppliche Konflikte. Dominanz- und Unterwerfungsverhalten stabilisiert Gruppen.</p>
+          </div>
+          <div class="card">
+            <h3>🔥 Trigger</h3>
+            <p>Respektlosigkeit gegenüber Eltern, Lehrern, Richtern, Uniformierten. Regeln ignorieren, Institutionen untergraben.</p>
+          </div>
+          <div class="card">
+            <h3>🏛️ Politik</h3>
+            <p>Recht &amp; Ordnung, Polizei, Militär, Tradition, Gehorsam, konservative Werte, Respekt vor dem Gesetz.</p>
+          </div>
+        </div>
+        <blockquote class="haidt mt">
+          „Those who valued Authority were more likely to … want to preserve established hierarchies."
+          <cite>— Graham et al., 2009</cite>
+        </blockquote>
+        <aside class="notes">Authority ist nicht blindes Gehorsam-Denken. Es ist ein genuines moralisches Empfinden: Ordnung hat Wert, Chaos ist schlecht.</aside>
+      </section>
+
+      <!-- Sanctity -->
+      <section>
+        <div style="border-left: 5px solid #ce93d8; padding-left: 0.8em; text-align: left;">
+          <div class="fd-hero" style="color:#ce93d8">SANCTITY</div>
+          <div class="fd-vs">vs. Degradation / Entweihung &nbsp;·&nbsp; deutsch: Reinheit &amp; das Erhabene</div>
+        </div>
+        <div class="fd-grid">
+          <div class="card">
+            <h3>🧬 Evolutionärer Ursprung</h3>
+            <p>Ekel-Psychologie als Schutz vor Pathogenen &amp; Parasiten. Später übertragen auf soziale und moralische Reinheit.</p>
+          </div>
+          <div class="card">
+            <h3>🔥 Trigger</h3>
+            <p>Tabubrüche, das „Falsche" essen, religiöse Entweihung, sexuelle Perversion, Prostitution des Körpers oder des Geistes.</p>
+          </div>
+          <div class="card">
+            <h3>🏛️ Politik</h3>
+            <p>Religiöse Gesetze, Abtreibungsdebatte, Bioethik, Naturschutz als Heiligtum, kulturelle Reinheit, Veganismus.</p>
+          </div>
+        </div>
+        <blockquote class="haidt mt">
+          „The body is a temple" — religiöse wie säkulare Formen dieser Foundation teilen dieselbe Psychologie.
+          <cite>— Haidt &amp; Joseph, 2004</cite>
+        </blockquote>
+        <aside class="notes">Sanctity erklärt, warum manche Handlungen als „falsch" empfunden werden, obwohl niemand geschädigt wird – z.B. Flagge verbrennen, bestimmte Lebensmittel essen.</aside>
+      </section>
+
+      <!-- Liberty -->
+      <section>
+        <div style="border-left: 5px solid #ff8a65; padding-left: 0.8em; text-align: left;">
+          <div class="fd-hero" style="color:#ff8a65">LIBERTY</div>
+          <div class="fd-vs">vs. Oppression / Unterdrückung &nbsp;·&nbsp; deutsch: Freiheit &amp; Autonomie</div>
+        </div>
+        <div class="fd-grid">
+          <div class="card">
+            <h3>🧬 Evolutionärer Ursprung</h3>
+            <p>Ressentiment gegen Dominanz-Individuen innerhalb der Gruppe. „Bullies" wurden kollektiv eingedämmt.</p>
+          </div>
+          <div class="card">
+            <h3>🔥 Trigger</h3>
+            <p>Staatlicher Zwang, Nanny-State, Bevormundung, Monopole, Konzernmacht, politische Willkür.</p>
+          </div>
+          <div class="card">
+            <h3>🏛️ Politik</h3>
+            <p>Bürgerrechte, Datenschutz, Anti-Establishment, Libertarismus, Antimonopol, linke wie rechte Freiheitsbewegungen.</p>
+          </div>
+        </div>
+        <blockquote class="haidt mt">
+          „Liberty is used by both the left and the right, but in very different ways."
+          <cite>— Haidt, 2012</cite>
+        </blockquote>
+        <aside class="notes">Liberty wurde erst 2012 als sechste Foundation hinzugefügt. Sie erklärt sowohl FDP-Wähler als auch Tea-Party-Populismus und linke Anti-Konzern-Bewegungen.</aside>
       </section>
 
       <section>
@@ -508,80 +709,76 @@
 
       <section>
         <h2>Parteien im Überblick</h2>
-        <div class="party-grid">
-
-          <div class="party-label">SPD</div>
-          <div class="bar-wrap">
-            <div class="bar-seg high"   style="background:#e57373"></div>
-            <div class="bar-seg high"   style="background:#81c784"></div>
-            <div class="bar-seg mid"    style="background:#64b5f6"></div>
-            <div class="bar-seg mid"    style="background:#ffd54f"></div>
-            <div class="bar-seg low"    style="background:#ce93d8"></div>
-            <div class="bar-seg mid"    style="background:#ff8a65"></div>
-          </div>
-
-          <div class="party-label">Grüne</div>
-          <div class="bar-wrap">
-            <div class="bar-seg high"   style="background:#e57373"></div>
-            <div class="bar-seg high"   style="background:#81c784"></div>
-            <div class="bar-seg low"    style="background:#64b5f6"></div>
-            <div class="bar-seg low"    style="background:#ffd54f"></div>
-            <div class="bar-seg mid"    style="background:#ce93d8"></div>
-            <div class="bar-seg mid"    style="background:#ff8a65"></div>
-          </div>
-
-          <div class="party-label">CDU/CSU</div>
-          <div class="bar-wrap">
-            <div class="bar-seg mid"    style="background:#e57373"></div>
-            <div class="bar-seg mid"    style="background:#81c784"></div>
-            <div class="bar-seg high"   style="background:#64b5f6"></div>
-            <div class="bar-seg high"   style="background:#ffd54f"></div>
-            <div class="bar-seg high"   style="background:#ce93d8"></div>
-            <div class="bar-seg mid"    style="background:#ff8a65"></div>
-          </div>
-
-          <div class="party-label">FDP</div>
-          <div class="bar-wrap">
-            <div class="bar-seg low"    style="background:#e57373"></div>
-            <div class="bar-seg mid"    style="background:#81c784"></div>
-            <div class="bar-seg low"    style="background:#64b5f6"></div>
-            <div class="bar-seg mid"    style="background:#ffd54f"></div>
-            <div class="bar-seg low"    style="background:#ce93d8"></div>
-            <div class="bar-seg high"   style="background:#ff8a65"></div>
-          </div>
-
-          <div class="party-label">AfD</div>
-          <div class="bar-wrap">
-            <div class="bar-seg mid"    style="background:#e57373"></div>
-            <div class="bar-seg mid"    style="background:#81c784"></div>
-            <div class="bar-seg high"   style="background:#64b5f6"></div>
-            <div class="bar-seg high"   style="background:#ffd54f"></div>
-            <div class="bar-seg high"   style="background:#ce93d8"></div>
-            <div class="bar-seg high"   style="background:#ff8a65"></div>
-          </div>
-
-          <div class="party-label">BSW / Linke</div>
-          <div class="bar-wrap">
-            <div class="bar-seg high"   style="background:#e57373"></div>
-            <div class="bar-seg high"   style="background:#81c784"></div>
-            <div class="bar-seg mid"    style="background:#64b5f6"></div>
-            <div class="bar-seg low"    style="background:#ffd54f"></div>
-            <div class="bar-seg low"    style="background:#ce93d8"></div>
-            <div class="bar-seg mid"    style="background:#ff8a65"></div>
-          </div>
-
-        </div>
-        <div class="mt" style="font-size:0.52em; color:var(--muted)">
-          <span style="opacity:1">■</span> hoch &nbsp;
-          <span style="opacity:0.6">■</span> mittel &nbsp;
-          <span style="opacity:0.25">■</span> niedrig &nbsp;|&nbsp;
-          <span style="color:#e57373">■</span> Care
-          <span style="color:#81c784">■</span> Fairness
-          <span style="color:#64b5f6">■</span> Loyalität
-          <span style="color:#ffd54f">■</span> Autorität
-          <span style="color:#ce93d8">■</span> Heiligkeit
-          <span style="color:#ff8a65">■</span> Freiheit
-        </div>
+        <table class="party-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th style="color:#e57373">Care</th>
+              <th style="color:#81c784">Fairness</th>
+              <th style="color:#64b5f6">Loyalty</th>
+              <th style="color:#ffd54f">Authority</th>
+              <th style="color:#ce93d8">Sanctity</th>
+              <th style="color:#ff8a65">Liberty</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="pt-name">SPD</td>
+              <td><span class="dot3" style="color:#e57373">●●●</span></td>
+              <td><span class="dot3" style="color:#81c784">●●●</span></td>
+              <td><span style="color:#64b5f6; opacity:0.55">●●</span></td>
+              <td><span style="color:#ffd54f; opacity:0.55">●●</span></td>
+              <td><span style="color:#ce93d8; opacity:0.22">●</span></td>
+              <td><span style="color:#ff8a65; opacity:0.55">●●</span></td>
+            </tr>
+            <tr>
+              <td class="pt-name">Grüne</td>
+              <td><span class="dot3" style="color:#e57373">●●●</span></td>
+              <td><span class="dot3" style="color:#81c784">●●●</span></td>
+              <td><span style="color:#64b5f6; opacity:0.22">●</span></td>
+              <td><span style="color:#ffd54f; opacity:0.22">●</span></td>
+              <td><span style="color:#ce93d8; opacity:0.55">●●</span></td>
+              <td><span style="color:#ff8a65; opacity:0.55">●●</span></td>
+            </tr>
+            <tr>
+              <td class="pt-name">CDU/CSU</td>
+              <td><span style="color:#e57373; opacity:0.55">●●</span></td>
+              <td><span style="color:#81c784; opacity:0.55">●●</span></td>
+              <td><span class="dot3" style="color:#64b5f6">●●●</span></td>
+              <td><span class="dot3" style="color:#ffd54f">●●●</span></td>
+              <td><span class="dot3" style="color:#ce93d8">●●●</span></td>
+              <td><span style="color:#ff8a65; opacity:0.55">●●</span></td>
+            </tr>
+            <tr>
+              <td class="pt-name">FDP</td>
+              <td><span style="color:#e57373; opacity:0.22">●</span></td>
+              <td><span style="color:#81c784; opacity:0.55">●●</span></td>
+              <td><span style="color:#64b5f6; opacity:0.22">●</span></td>
+              <td><span style="color:#ffd54f; opacity:0.55">●●</span></td>
+              <td><span style="color:#ce93d8; opacity:0.22">●</span></td>
+              <td><span class="dot3" style="color:#ff8a65">●●●</span></td>
+            </tr>
+            <tr>
+              <td class="pt-name">AfD</td>
+              <td><span style="color:#e57373; opacity:0.55">●●</span></td>
+              <td><span style="color:#81c784; opacity:0.55">●●</span></td>
+              <td><span class="dot3" style="color:#64b5f6">●●●</span></td>
+              <td><span class="dot3" style="color:#ffd54f">●●●</span></td>
+              <td><span class="dot3" style="color:#ce93d8">●●●</span></td>
+              <td><span class="dot3" style="color:#ff8a65">●●●</span></td>
+            </tr>
+            <tr>
+              <td class="pt-name">BSW / Linke</td>
+              <td><span class="dot3" style="color:#e57373">●●●</span></td>
+              <td><span class="dot3" style="color:#81c784">●●●</span></td>
+              <td><span style="color:#64b5f6; opacity:0.55">●●</span></td>
+              <td><span style="color:#ffd54f; opacity:0.22">●</span></td>
+              <td><span style="color:#ce93d8; opacity:0.22">●</span></td>
+              <td><span style="color:#ff8a65; opacity:0.55">●●</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="small mt text-muted">●●● stark &nbsp;·&nbsp; ●● mittel &nbsp;·&nbsp; ● schwach</p>
         <aside class="notes">
           Die AfD ist die einzige Partei, die alle sechs Grundlagen gleichzeitig und stark bespielt –
           ähnlich dem Muster US-amerikanischer Konservativer.
@@ -819,6 +1016,28 @@
               „Gleiche Regeln für alle – ob Großkonzern oder kleiner Handwerksbetrieb. Ein starker Rechtsstaat schützt die Ehrlichen vor den Betrügern."
             </blockquote>
             <p class="small text-muted">Ansprache: Autorität + Fairness. Zielgruppe: Mittelstand, Ordnungsliebende.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Empfehlung 5: Sanctity – die übersehene Foundation</h2>
+        <p class="small text-muted">Sanctity klingt religiös – ist es aber nicht nur. Es geht um das Gefühl von <em>Unantastbarkeit</em> und <em>Reinheit</em>. Die FDP kann das säkular nutzen:</p>
+        <div class="cards mt">
+          <div class="card" style="border-left: 3px solid #ce93d8;">
+            <h3>🔒 Digitale Privatsphäre als Unantastbarkeit</h3>
+            <p style="font-size:0.65em">„Deine Daten gehören dir – der Staat hat nichts in deinem Telefon zu suchen. Die Würde des Menschen ist unantastbar, auch digital."</p>
+            <p style="font-size:0.58em; color:var(--muted); margin-top:0.4em">Ansprache: Sanctity + Liberty. Zielgruppe: Junge, Technik-affine, Bürgerrechtler.</p>
+          </div>
+          <div class="card" style="border-left: 3px solid #ce93d8;">
+            <h3>⚖️ Rechtsstaatlichkeit als heiliges Gut</h3>
+            <p style="font-size:0.65em">„Das Grundgesetz ist unser höchstes Gut – und es schützt uns vor staatlicher Willkür. Wir lassen nicht zu, dass Ausnahmen zum Normalzustand werden."</p>
+            <p style="font-size:0.58em; color:var(--muted); margin-top:0.4em">Ansprache: Sanctity + Authority. Zielgruppe: Bildungsbürgertum, Juristen, Ordoliberale.</p>
+          </div>
+          <div class="card" style="border-left: 3px solid #ce93d8;">
+            <h3>🏪 Marktintegrität statt Marktverzerrung</h3>
+            <p style="font-size:0.65em">„Ein freier Markt ohne politische Korruption und Subventionen ist das reinste System wirtschaftlicher Gerechtigkeit – Lobbyismus beschmutzt ihn."</p>
+            <p style="font-size:0.58em; color:var(--muted); margin-top:0.4em">Ansprache: Sanctity + Fairness. Zielgruppe: Unternehmer, Wirtschaftsliberale mit Prinzipien.</p>
           </div>
         </div>
       </section>
