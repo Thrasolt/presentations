@@ -76,8 +76,8 @@
 
 .reveal .card p,
 .reveal .card li {
-  font-size: 0.6em;
-  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.65em;
+  color: rgba(255, 255, 255, 0.88);
   margin: 0;
 }
 
@@ -250,4 +250,84 @@
   font-weight: 700;
   white-space: nowrap;
   padding-right: 0.8em;
+}
+
+/* ── Take-Away (Fazit) ── */
+.reveal .take-away {
+  text-align: center;
+  margin: 0.4em 0 0.6em;
+}
+.reveal .take-away .ta-line {
+  font-size: 0.92em;
+  line-height: 1.4;
+  margin: 0.18em 0;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.reveal .take-away .ta-line.ta-accent {
+  color: var(--fdp-yellow);
+  font-weight: 700;
+}
+
+/* ── Spider-Chart-Grid ── */
+.reveal .spider-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.4em;
+  align-items: stretch;
+}
+.reveal .spider-cell {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  padding: 0.3em 0.4em 0.4em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.reveal .spider-cell .party {
+  font-size: 0.55em;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 0.15em;
+  letter-spacing: 0.04em;
+}
+.reveal .spider-cell svg {
+  width: 100%;
+  max-width: 110px;
+  height: auto;
+  display: block;
+}
+.reveal .spider-cell.spider-legend {
+  justify-content: center;
+}
+.reveal .spider-cell .spider-axes {
+  list-style: none;
+  padding: 0;
+  margin: 0.15em 0 0;
+  text-align: left;
+  font-size: 0.45em;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.45;
+}
+.reveal .spider-cell .spider-axes li::before {
+  content: '';
+}
+.reveal .spider-cell .spider-axes li {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.reveal .spider-cell .spider-axes .dot {
+  width: 0.7em;
+  height: 0.7em;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+/* Slightly higher contrast for inline-styled small text */
+.reveal .text-muted {
+  color: rgba(255, 255, 255, 0.7);
 }
