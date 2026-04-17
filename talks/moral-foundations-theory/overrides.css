@@ -86,6 +86,43 @@
   margin: 0;
 }
 
+.reveal .foundation-examples {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.45em;
+  margin: 0.45em 0 0;
+  padding: 0;
+}
+
+.reveal .foundation-examples li {
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.54em;
+  line-height: 1.22;
+  padding: 0.45em 0.55em;
+}
+
+.reveal .foundation-examples li::before {
+  content: none;
+}
+
+.reveal .examples-box {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  margin-top: 0.45em;
+  padding: 0.45em 0.6em 0.55em;
+  text-align: left;
+}
+
+.reveal .examples-box h3 {
+  font-size: 0.62em;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
 .reveal .card .icon {
   font-size: 1.18em;
   margin-bottom: 0.12em;
@@ -250,6 +287,118 @@
   font-weight: 700;
   white-space: nowrap;
   padding-right: 0.8em;
+}
+
+/* ── Spider Charts ── */
+.reveal .spider-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.4em;
+}
+.reveal .spider-cell {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  padding: 0.3em 0.3em 0.1em;
+  text-align: center;
+}
+.reveal .spider-cell svg {
+  width: 100%;
+  display: block;
+}
+.reveal .spider-cell .party {
+  font-size: 0.52em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.15em;
+  color: rgba(255,255,255,0.9);
+}
+.reveal .spider-legend {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.reveal .spider-axes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+.reveal .spider-axes li {
+  font-size: 0.45em;
+  color: rgba(255,255,255,0.75);
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  margin-bottom: 0.2em;
+}
+.reveal .spider-axes li::before { content: none; }
+
+/* ── Party slide spider chart ── */
+.reveal .slides section {
+  overflow: visible;
+}
+.reveal .spider-overlay {
+  position: static;
+  width: 210px;
+  margin: 0.35em auto 0;
+  opacity: 0.98;
+}
+.reveal .spider-overlay svg {
+  width: 100%;
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(0,0,0,0.65));
+}
+
+.reveal .spider-overlay text,
+.reveal .spider-cell text,
+.reveal .fdp-spider-compare text {
+  font-size: 8px !important;
+  paint-order: stroke fill;
+  stroke: rgba(15, 15, 15, 0.9);
+  stroke-width: 0.45px;
+}
+
+.reveal .fdp-spider-compare {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 145px));
+  gap: 0.8em;
+  justify-content: center;
+  align-items: start;
+  margin: 0.45em 0 0.25em;
+}
+
+.reveal .fdp-spider-compare .mini-spider {
+  text-align: center;
+}
+
+.reveal .fdp-spider-compare .mini-spider-label {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.5em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.1em;
+}
+
+.reveal .fdp-spider-compare svg {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ── Take-Away Fazit ── */
+.reveal .take-away {
+  text-align: center;
+  margin: 0.4em 0;
+}
+.reveal .ta-line {
+  font-size: 0.88em;
+  line-height: 1.5;
+  margin: 0.15em 0;
+}
+.reveal .ta-accent {
+  color: var(--fdp-yellow);
+  font-weight: 700;
 }
 
 /* ── Take-Away (Fazit) ── */
